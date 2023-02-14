@@ -22,12 +22,9 @@ jobs:
 
       - name: check build.
         run: yarn build
-      
+
       - name: Set up Husky
         run: npx husky install .husky
 
       - name: Configure pre-commit hook
-        run: npx husky add .husky/pre-commit "yarn lint-staged"
-        run: npx husky add .husky/pre-commit "yarn test"
-
-
+        run: npx husky add .husky/pre-commit "yarn lint-staged && yarn test"
