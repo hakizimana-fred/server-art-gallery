@@ -11,6 +11,12 @@
     "lint": "eslint --ignore-path .eslintignore --ext .js,.ts .",
     "format": "prettier --write ."
   },
+  "lint-staged": {
+    "**/*.{js,jsx,ts,tsx}": [
+      "prettier --write",
+      "npx eslint --fix"
+    ]
+  },
   "keywords": [],
   "author": "hakifred",
   "license": "ISC",
