@@ -9,11 +9,12 @@
     "dev": "NODE_ENV=development nodemon src/app.ts",
     "build": "rimraf ./dist && tsc",
     "lint": "eslint --ignore-path .eslintignore --ext .js,.ts .",
-    "format": "prettier --write ."
+    "format": "prettier --write .",
+    "prepare": "husky install"
   },
   "lint-staged": {
     "**/*.{js,jsx,ts,tsx}": [
-      "prettier --write",
+      "prettier --write .",
       "npx eslint --fix"
     ]
   },
