@@ -8,13 +8,12 @@
     "watch": "tsc -w",
     "dev": "NODE_ENV=development nodemon src/app.ts",
     "build": "rimraf ./dist && tsc",
-    "lint": "eslint --ignore-path .eslintignore --ext .js,.ts .",
-    "format": "prettier --write .",
+    "prettier": "prettier --write .",
     "prepare": "husky install"
   },
   "lint-staged": {
     "**/*.{js,jsx,ts,tsx}": [
-      "prettier --write .",
+      "prettier --write",
       "npx eslint --fix"
     ]
   },
