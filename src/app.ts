@@ -1,5 +1,5 @@
 import 'dotenv/config'
-import express, { Application } from 'express'
+import express, { Application, Response } from 'express'
 import helmet from 'helmet'
 import morgan from 'morgan'
 import { dbConnection } from './config/db'
@@ -16,17 +16,24 @@ const main = async () => {
     app.use(express.json())
     app.use(helmet())
     process.env.NODE_ENV === 'development' && app.use(morgan('dev'))
-
     // routes
     app.use('/api/v1/', router)
 
     app.listen(process.env.PORT, () => {
       console.log(`server started on http://localhost:${process.env.PORT}`)
       swaggerDocs(app, Number(process.env.PORT))
+      // Not found routes
+      app.use((_, res: Response) => {
+        res.status(404).json({
+          status: 404,
+          success: false,
+          message: "Route doesn't exist. 😢",
+        })
+      })
     })
   } catch (err) {
     process.exit(1)
   }
 }
 
-main()
+void main()
