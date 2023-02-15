@@ -48,7 +48,7 @@ export const userService = {
       //send email
       await sendEmail(
         email,
-        `<a href="http://localhost:3000/change-password/${token}">reset password</a>`
+        `<a href="http://localhost:5173/change-password/${token}">reset password</a>`
       )
       return true
     } catch (err) {

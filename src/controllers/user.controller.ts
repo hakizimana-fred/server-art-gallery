@@ -39,9 +39,11 @@ export const userCtrl = {
   async resetPasswordRequest(req: Request, res: Response) {
     try {
       await userService.requestPasswordReset(req.body.email)
-      return res
-        .status(200)
-        .json({ success: true, mesage: 'Reset password request' })
+      return res.status(200).json({
+        success: true,
+        mesage:
+          'We sent an email with further instructions on how to proceed with changing your password!',
+      })
     } catch (err) {
       return res.status(400).json({ success: false, error: err.message })
     }
@@ -51,7 +53,7 @@ export const userCtrl = {
       await userService.changePassword(req.body)
       return res
         .status(200)
-        .json({ success: true, mesage: 'change password successfull' })
+        .json({ success: true, message: 'change password successfull' })
     } catch (err) {
       return res.status(400).json({ success: false, error: err.message })
     }
