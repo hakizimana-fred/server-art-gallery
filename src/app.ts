@@ -1,3 +1,4 @@
+import cors from 'cors'
 import 'dotenv/config'
 import express, { Application, Response } from 'express'
 import helmet from 'helmet'
@@ -15,6 +16,7 @@ const main = async () => {
     // middlewares
     app.use(express.json())
     app.use(helmet())
+    app.use(cors({ origin: '*' }))
     process.env.NODE_ENV === 'development' && app.use(morgan('dev'))
     // routes
     app.use('/api/v1/', router)

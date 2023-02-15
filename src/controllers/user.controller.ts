@@ -36,4 +36,24 @@ export const userCtrl = {
       return res.status(400).json({ success: false, error: err.message })
     }
   },
+  async resetPasswordRequest(req: Request, res: Response) {
+    try {
+      await userService.requestPasswordReset(req.body.email)
+      return res
+        .status(200)
+        .json({ success: true, mesage: 'Reset password request' })
+    } catch (err) {
+      return res.status(400).json({ success: false, error: err.message })
+    }
+  },
+  async changePassword(req: Request, res: Response) {
+    try {
+      await userService.changePassword(req.body)
+      return res
+        .status(200)
+        .json({ success: true, mesage: 'change password successfull' })
+    } catch (err) {
+      return res.status(400).json({ success: false, error: err.message })
+    }
+  },
 }

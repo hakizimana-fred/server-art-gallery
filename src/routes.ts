@@ -8,6 +8,8 @@ const router = Router()
 router.get('/healthcheck', (_, res) => res.send('Hi there'))
 router.post('/user/signup', userCtrl.signup)
 router.post('/user/login', userCtrl.login)
+router.post('/user/reset-password', userCtrl.resetPasswordRequest)
+router.post('/user/change-password', userCtrl.changePassword)
 
 router
   .route('/moment')

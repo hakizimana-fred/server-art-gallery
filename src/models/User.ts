@@ -3,6 +3,8 @@ import { Document, model, Schema } from 'mongoose'
 export interface IUser extends Document {
   email: string
   password: string
+  resetToken?: string
+  [key: string]: any
 }
 
 const userSchema = new Schema({
@@ -20,6 +22,10 @@ const userSchema = new Schema({
     type: String,
     required: [true, 'password is required'],
     minlength: 6,
+  },
+  resetToken: {
+    type: String,
+    default: '',
   },
 })
 
