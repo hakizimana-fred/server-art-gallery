@@ -1,6 +1,6 @@
 import { Document, model, Schema } from 'mongoose'
 
-interface IUser extends Document {
+export interface IUser extends Document {
   email: string
   password: string
 }
@@ -9,13 +9,17 @@ const userSchema = new Schema({
   email: {
     type: String,
     required: [true, 'email is required'],
+    match: [
+      /^(([^<>()[\]\\.,;:\s@"]+(\.[^<>()[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/,
+      'Please provide a valid email',
+    ],
     unique: true,
     lowecase: true,
   },
   password: {
     type: String,
     required: [true, 'password is required'],
-    min: [6, 'password length should be at least 6 chars'],
+    minlength: 6,
   },
 })
 

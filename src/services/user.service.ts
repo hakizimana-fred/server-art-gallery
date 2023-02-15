@@ -1,8 +1,8 @@
 import argon2 from 'argon2'
-import User from '../models/User'
+import User, { IUser } from '../models/User'
 
 export const userService = {
-  async createUser(input: any) {
+  async createUser(input: IUser) {
     try {
       const { email, password } = input
       // check if user exits
@@ -15,10 +15,10 @@ export const userService = {
       await newUser.save()
       return newUser
     } catch (err: any) {
-      throw new Error(err)
+      throw new Error(err.message)
     }
   },
-  async userLogin(input: any) {
+  async userLogin(input: IUser) {
     try {
       const { email, password } = input
       // check if user exits
@@ -29,7 +29,7 @@ export const userService = {
       if (!isPasswordValid) throw new Error('Invalid credentails')
       return userExists
     } catch (err) {
-      throw new Error(err)
+      throw new Error(err.message)
     }
   },
 }
