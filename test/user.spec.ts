@@ -9,7 +9,7 @@ describe('Simple test case', () => {
 
 describe('Route test', () => {
   it('get any specified route', async () => {
-    const res = await request(app).get('/healthchec');
+    const res = await request(app).get('/api/v1/healthchec');
     expect(res.status).toEqual(200);
   });
 });
