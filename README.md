@@ -12,7 +12,7 @@ To get started with this api follow the steps below
 ```shell
 $ git clone https://github.com/hakizimana-fred/server-art-gallery.git
 $ cd server-art-gallery
-$ yarn install or npm install
+$ yarn  or npm install
 ```
 
 ## DATABASE
