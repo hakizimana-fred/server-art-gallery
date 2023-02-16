@@ -65,7 +65,7 @@ export const userService = {
 
       await User.findOneAndUpdate(
         { _id: user._id },
-        { $set: { password: hashedPassword } },
+        { $set: { password: hashedPassword, resetToken: null } },
         { new: true }
       )
 
@@ -75,3 +75,4 @@ export const userService = {
     }
   },
 }
+
