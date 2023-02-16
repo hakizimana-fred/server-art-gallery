@@ -1,7 +1,7 @@
 # server-art-gallery
 
 Tasks:  create an image gallery store for user!
-# Blogs REST API with Express & MongoDB
+# User Gallery Rest Api with Express & MongoDB
 
 Nodejs api with express and mongoose ORM
 
