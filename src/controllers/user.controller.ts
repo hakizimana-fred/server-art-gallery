@@ -5,6 +5,11 @@ import { jwtUtils } from '../utils/jwtUtilities'
 export const userCtrl = {
   async signup(req: Request, res: Response) {
     try {
+      if (!req.body.email || !req.body.password) {
+        return res
+          .status(400)
+          .json({ success: false, mesage: 'Email and password are required' })
+      }
       const user = await userService.createUser(req.body)
       const token = jwtUtils.generateToken(user)
       return res.status(200).json({
@@ -22,6 +27,11 @@ export const userCtrl = {
 
   async login(req: Request, res: Response) {
     try {
+      if (!req.body.email || !req.body.password) {
+        return res
+          .status(400)
+          .json({ success: false, mesage: 'Email and password are required' })
+      }
       const user = await userService.userLogin(req.body)
       const token = jwtUtils.generateToken(user)
       return res.status(200).json({
