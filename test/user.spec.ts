@@ -16,7 +16,6 @@ describe('Route test', () => {
 
 
 
-Write an email to ng_talent@ngeni.io Subject: [Art Gallery App] and message include your public github repo to your project.
 
 
 describe('User authentication', () => {
