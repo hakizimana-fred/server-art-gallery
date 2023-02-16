@@ -1,2 +1,3 @@
 # server-art-gallery
-Tasks:  create an image gallery store for user
+
+Tasks:  create an image gallery store for user!
